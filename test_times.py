@@ -1,3 +1,4 @@
+import pytest
 from times import time_range, compute_overlap_time
 
 def test_times():
@@ -43,3 +44,8 @@ def test_touching_overlap():
     expected = []
     
     assert result == expected
+
+def test_time_range_bcksards():
+    with pytest.raises(ValueError):
+        time_range("2010-01-12 12:00:00", "2010-01-12 10:00:00")
+
